@@ -1,0 +1,28 @@
+COMPILE_DEPS = [
+    '//lib:CORE_DEPS',
+    '//lib:JACKSON',
+    '//lib:KRYO',
+    '//lib:javax.ws.rs-api',
+    '//lib:org.apache.karaf.shell.console',
+    '//core/api:onos-api',
+    '//core/store/serializers:onos-core-serializers',
+    '//utils/rest:onlab-rest',
+    '//cli:onos-cli',
+]
+
+osgi_jar_with_tests (
+    deps = COMPILE_DEPS,
+    web_context = '/onos/hello',
+    api_title = 'Hello World',
+    api_version = '1.0',
+    api_description = 'ONOS say hello world',
+    api_package = 'org.onosproject.helloworld',
+)
+
+onos_app (
+    app_name = 'org.onosproject.helloworld',
+    title = 'HelloWorld',
+    category = 'HelloWorld',
+    url = 'http://onosproject.org',
+    description = 'ONOS say hello world.',
+)
